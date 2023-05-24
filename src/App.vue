@@ -2,14 +2,11 @@
 import { RouterLink, RouterView } from 'vue-router'
 import Index from './components/Index.vue'
 </script>
-
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
       <Index />
-
       <nav>
         <RouterLink to="/">{{ $t("menu.home") }}</RouterLink>
         <RouterLink to="/bday">{{ $t("menu.checkitout") }}</RouterLink>
@@ -17,7 +14,6 @@ import Index from './components/Index.vue'
       </nav>
     </div>
   </header>
-
   <RouterView />
 </template>
 

@@ -1,4 +1,15 @@
-<script setup>
+<script>
+export default {
+  data () {
+    return { lang: 'es' }
+  },
+  methods: {
+    changeLanguage() {
+      this.$i18n.locale = this.$i18n.locale === 'en' ? 'es' : 'en';
+      this.lang = this.lang === 'es' ? 'en' : 'es';
+    }
+  }
+}
 </script>
 
 <template>
@@ -9,9 +20,20 @@
     </h3>
     <p v-html="$t('index.siteInstructions')"></p>
   </div>
+  <img class="flag me-2" :class="{ active: this.lang == 'es' }" src="https://flagicons.lipis.dev/flags/4x3/es.svg" @click="changeLanguage()" />
+  <img class="flag me-2" :class="{ active: this.lang == 'en' }" src="https://flagicons.lipis.dev/flags/4x3/um.svg" @click="changeLanguage()" />
 </template>
 
 <style scoped>
+.flag {
+  filter: grayscale(1);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+.flag.active {
+  filter: grayscale(0);
+}
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
