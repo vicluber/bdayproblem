@@ -7,12 +7,13 @@ export default {
             selected: false,
             numberOfPlayers: '',
             probability: '',
-            teamName: ''
+            teamName: '',
+            results: ''
         }
     },
     inject: ['axios'],
     mounted() {
-        this.axios.get('https://apiv3.apifootball.com/?action=get_teams&league_id=44&APIkey=6b873b00f9eed5bf43812c9bc9b94bace618019f506e74edc477e79de1e2662d')
+        this.axios.get('https://apiv3.apifootball.com/?action=get_teams&league_id=302&APIkey=6b873b00f9eed5bf43812c9bc9b94bace618019f506e74edc477e79de1e2662d')
         .then(response => {
             this.teamsArray = response.data
         })
@@ -25,7 +26,7 @@ export default {
             let p = 1.0
             for (let i = 1; i <= this.numberOfPlayers; i++) {
                 p = p * (366 - i) / 365
-                this.probability = 1 - p.toFixed(2);
+                this.probability = (1 - p.toFixed(2)) * 100;
             }
             const result = teamPlayers.map(({ player_name, player_image, player_birthdate }) => {
                 const modifiedBirthdate = player_birthdate.substring(5);
@@ -45,8 +46,9 @@ export default {
                 }
             }
             this.selected = !this.selected
+            this.results = this.$i18n.t('theMain.resultDescription', { teamName: this.teamName, numberOfPlayers: this.numberOfPlayers, probability: this.probability })
         }
-    }
+    },
 }
 </script>
 
@@ -57,9 +59,9 @@ export default {
         </li>
     </ul>
     <div class="p-5" v-if="selected">
-        For {{ teamName }} with <span class="green">{{ numberOfPlayers }}</span> players on its team has a <span class="green">{{ this.probability }}%</span> (rounding up) of probability that at least two players share their birthday.
+        <p v-html="results"></p>
         <div class="p-5" v-for="(item, index) in sharedBirthdays" :key="index">
-            <h5 class="green">They were born the same day:</h5>
+            <h5 class="green">{{ $t("theMain.resultTitle") }}</h5>
             <div class="d-flex flex-wrap">
                 <div class="d-flex flex-column" v-for="(p, i) in item" :key="i">
                     <div class="text-center"><b>{{ p.name }}</b></div>
