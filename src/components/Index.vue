@@ -13,6 +13,10 @@ export default {
 </script>
 
 <template>
+  <div class="lang-selector pb-5">
+    <img class="flag me-2" :class="{ active: this.lang == 'es' }" src="https://flagicons.lipis.dev/flags/4x3/es.svg" @click="changeLanguage()" />
+    <img class="flag me-2" :class="{ active: this.lang == 'en' }" src="https://flagicons.lipis.dev/flags/4x3/um.svg" @click="changeLanguage()" />
+  </div>
   <div class="greetings">
     <h1 class="green">{{ $t("index.title") }}</h1>
     <h3>
@@ -20,8 +24,7 @@ export default {
     </h3>
     <p v-html="$t('index.siteInstructions')"></p>
   </div>
-  <img class="flag me-2" :class="{ active: this.lang == 'es' }" src="https://flagicons.lipis.dev/flags/4x3/es.svg" @click="changeLanguage()" />
-  <img class="flag me-2" :class="{ active: this.lang == 'en' }" src="https://flagicons.lipis.dev/flags/4x3/um.svg" @click="changeLanguage()" />
+
 </template>
 
 <style scoped>
