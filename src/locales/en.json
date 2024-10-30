@@ -2,41 +2,41 @@
     "menu": {
         "home": "Home",
         "checkitout": "Check it out",
-        "understanding": "Understanding"
+        "understanding": "Understand"
     },
     "understanding": {
-        "eli5": "<p>For better understanding, it is easier to pose the problem backwards and look for the probability of two people not sharing the same birthdate. For the sake of this problem, we will live in a world where the earth takes just 10 days to go around the sun and there are no months. So we have two people in a 10-day year, with no months, and we are looking for the probability of these two people not sharing the same birthdate.</p><p>If one of them is born on a certain day, how many optional days does the other person have in order not to share the same birthdate? Nine, right? There are nine days on which the second person could be born and not share a birthdate with the first person. So the chance of not sharing a birthdate is 9/10, or 0.9, which is equivalent to a 90% probability.</p><p>Now, lets add a third person to the problem. What is the chance that this third person does not share their birthdate with the first two? If the first two people already took two days of our 10-day year, the third person can be born on any of the remaining 8 days. So the probability of not sharing a birthdate with the other two would be 8/10, or 0.8, which is equivalent to an 80% probability. Then, just by subtraction, you can calculate the chance that the third person shares a birthdate with the other two. If there is an 80% chance of not sharing, that means there is a 20% chance of sharing. By using the <a href='https://www.youtube.com/watch?v=uvU4A2u_pAc'>Multiplication Rules of Probability</a>, you can get the probability of three people not sharing their birthdates in a 10-day year: (10/10) x (9/10) x (8/10) = 0.72 = 72%.</p><p>Now, lets do the same thing with a 365-day year and 23 people. The probability of them not sharing their birthdates is (365/365) x (365/364) x (365/363) x (365/362) ... = 0.4927 = 49.27%, which means that 50.73% of them do share a birthdate.</p><p><a href='https://www.youtube.com/watch?v=KtT_cgMzHx8'>This video</a> made it clear enoght for me.</p>"
+        "eli5": "<p>To understand this better, let's look at the problem in reverse and find the chance that two people do not share the same birthday. Imagine a world where the year is only 10 days long with no months. We have two people in this 10-day year, and we want to know the probability that they don't share a birthday.</p><p>If one is born on a specific day, how many options does the other person have to avoid sharing that birthday? Nine, right? So, the chance of not sharing a birthday is 9/10, or 0.9, which equals 90%.</p><p>Now, let's add a third person. What are the odds that this third person doesn't share a birthday with the first two? If the first two have already taken two days, the third can be born on any of the 8 remaining days. So, the probability of not sharing a birthday is 8/10, or 0.8, or 80%. Subtracting gives a 20% chance of sharing. Using the <a href='https://www.youtube.com/watch?v=uvU4A2u_pAc'>Multiplication Rules of Probability</a>, we find the probability of three people not sharing a birthday in a 10-day year: (10/10) x (9/10) x (8/10) = 0.72 = 72%.</p><p>Now, let’s do the same with a 365-day year and 23 people. The probability of not sharing birthdays is (365/365) x (364/365) x (363/365) x (362/365) ... = 0.4927 = 49.27%, meaning that 50.73% of them do share a birthday.</p><p><a href='https://www.youtube.com/watch?v=KtT_cgMzHx8'>This video</a> clarified it well for me.</p>"
     },
     "index": {
         "title": "The birthday 'paradox'",
-        "subjectDescription": "Even when incorrect The birthday problem as been called paradox because is a strong counterintuitive fact. That states that with only 23 people, the probability of two people sharing the same birthday exceeds 50%.",
-        "siteInstructions": "In 'Check it out' page you can check this fact by using data of Spanish football teams from the FIFA (pulled from <a href='https://apifootball.com/'>here</a>)"
+        "subjectDescription": "Known as a paradox because it’s counterintuitive, the birthday problem shows that with only 23 people, there is over a 50% chance that two share the same birthday.",
+        "siteInstructions": "On the 'Check it out' page, you can test this using data from Spanish FIFA football teams (sourced from <a href='https://apifootball.com/'>here</a>)."
     },
     "theMain": {
-        "resultDescription": "For {teamName} with <span class='green'>{numberOfPlayers}</span> players on its team has a <span class='green'>{probability}%</span> of probability (rounding up) that at least two players share their birthday.",
+        "resultDescription": "For {teamName}, with <span class='green'>{numberOfPlayers}</span> players, there's a <span class='green'>{probability}%</span> chance (rounded up) that at least two players share a birthday.",
         "resultTitle": "They were born the same day:",
-        "noResults": "But apparently, for this team, there are no two players who share a birthday. Thats how probability works." 
+        "noResults": "Apparently, there are no two players on this team who share a birthday. That's how probability works."
     },
     "theWelcome": {
         "first": {
             "title": "The question",
-            "content": "In a group of people, how many people do you think is necessary in order ot have two of them sharing their birthdate?"
+            "content": "In a group, how many people do you think it takes for two to share a birthday?"
         },
         "second": {
             "title": "23",
-            "content": "With a group of 23 people you manage a 50% chance that two of them share their birthdate."
+            "content": "With 23 people, there’s a 50% chance that two of them share a birthday."
         },
         "third": {
             "title": "40",
-            "content": "With a group of 40 people you get a 89.1% of probability. So next time you are having a family dinner, think that if there is 40 of you there, think on their birthdays and you maight find two the same day."
+            "content": "With 40 people, there’s an 89.1% chance. So, next time you’re at a family dinner with 40 people, think about their birthdays—you might find a match."
         },
         "fourth": {
             "title": "60",
-            "content": "With 60 and a 99.4% you can bet that two of them will share thei birthdate."
+            "content": "With 60 people, there’s a 99.4% chance that two of them share a birthday."
         },
         "fifth": {
-            "title": "Ant the maths for it are not that complicated",
-            "content": "You can try to grasp the fact from <a href='/understanding'>here</a>. (365/365) x (365/364) x (365/363) x  (365/362)... = 0.4927 = 49.27% of them not sharing their birthdates which means 50.73% they do."
+            "title": "The math behind this is simple",
+            "content": "You can understand it further <a href='/understanding'>here</a>. (365/365) x (364/365) x (363/365) x (362/365)... = 0.4927 = 49.27% probability of no shared birthdays, meaning a 50.73% chance that they do."
         }
     }
 }

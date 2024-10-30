@@ -1,42 +1,42 @@
 {
     "menu": {
         "home": "El hecho",
-        "checkitout": "Verifícalo",
-        "understanding": "Entiéndelo"
+        "checkitout": "Verificar",
+        "understanding": "Entender"
     },
     "understanding": {
-        "eli5": "<p>Para entender mejor, es más fácil plantear el problema al revés y buscar la probabilidad de que dos personas no compartan la misma fecha de nacimiento. Para este problema, viviremos en un mundo donde la Tierra tarda solo 10 días en dar la vuelta al sol y no hay meses. Así que tenemos dos personas en un año de 10 días, sin meses, y buscamos la probabilidad de que estas dos personas no compartan la misma fecha de nacimiento.</p><p>Si una de ellas nace en un día determinado, ¿cuántos días opcionales tiene la otra persona para no compartir la misma fecha de nacimiento? ¿Nueve, verdad? Hay nueve días en los que la segunda persona podría nacer y no compartir fecha de nacimiento con la primera persona. Así que la probabilidad de no compartir fecha de nacimiento es de 9/10, o 0.9, lo que equivale a una probabilidad del 90%.</p><p>Ahora, agreguemos una tercera persona al problema. ¿Cuál es la probabilidad de que esta tercera persona no comparta su fecha de nacimiento con las dos primeras? Si las dos primeras personas ya tomaron dos días de nuestro año de 10 días, la tercera persona puede nacer en cualquiera de los otros 8 días restantes. Por lo tanto, la probabilidad de no compartir una fecha de nacimiento con las otras dos sería de 8/10, o 0.8, lo que equivale a una probabilidad del 80%. Luego, simplemente restando, se puede calcular la probabilidad de que la tercera persona comparta una fecha de nacimiento con las otras dos. Si hay un 80% de probabilidad de no compartir, eso significa que hay un 20% de probabilidad de compartir. Usando las <a href='https://www.youtube.com/watch?v=uvU4A2u_pAc'>Reglas de multiplicación de probabilidad</a>, se puede obtener la probabilidad de que tres personas no compartan sus fechas de nacimiento en un año de 10 días: (10/10) x (9/10) x (8/10) = 0.72 = 72%.</p><p>Ahora, hagamos lo mismo con un año de 365 días y 23 personas. La probabilidad de que no compartan sus fechas de nacimiento es (365/365) x (365/364) x (365/363) x (365/362) ... = 0.4927 = 49.27%, lo que significa que el 50.73% de ellos comparten una fecha de nacimiento.</p><p><a href='https://www.youtube.com/watch?v=KtT_cgMzHx8'>Este video</a> lo dejó bastante claro para mí.</p>"
+        "eli5": "<p>Para entenderlo mejor, veamos el problema al revés y calculemos la probabilidad de que dos personas no compartan su fecha de nacimiento. Imagina que vivimos en un mundo con años de solo 10 días y sin meses. Tenemos dos personas en un año de 10 días, y queremos saber la probabilidad de que no compartan fecha de nacimiento.</p><p>Si una de ellas nace en un día específico, ¿cuántos días disponibles quedan para la otra persona? Nueve, ¿verdad? Entonces, la probabilidad de no compartir fecha de nacimiento es 9/10, o 0.9, equivalente a un 90%.</p><p>Ahora, añadimos una tercera persona. Si las dos primeras ya eligieron dos días, la tercera puede nacer en uno de los 8 días restantes. La probabilidad de no compartir fecha con las otras dos es 8/10, o 0.8, es decir, un 80%. De ahí, podemos deducir que hay un 20% de probabilidad de que comparta fecha con alguna de las dos. Aplicando las <a href='https://www.youtube.com/watch?v=uvU4A2u_pAc'>reglas de multiplicación de probabilidad</a>, calculamos la probabilidad de que las tres personas no compartan fecha en un año de 10 días: (10/10) x (9/10) x (8/10) = 0.72 = 72%.</p><p>Ahora, usemos un año de 365 días y 23 personas. La probabilidad de que no compartan fechas de nacimiento es (365/365) x (364/365) x (363/365) x (362/365) ... = 0.4927 = 49.27%, lo que significa que el 50.73% de ellos comparten una fecha de nacimiento.</p><p><a href='https://www.youtube.com/watch?v=KtT_cgMzHx8'>Este video</a> me ayudó mucho a entenderlo.</p>"
     },
     "index": {
         "title": "La 'paradoja' del cumpleaños",
-        "subjectDescription": "Aunque incorrecto, el problema del cumpleaños ha sido llamado paradoja porque es un hecho fuertemente contra intuitivo. Que establece que con solo 23 personas, la probabilidad de que dos personas compartan el mismo cumpleaños supera el 50%.",
-        "siteInstructions": "En la página 'Verifícalo' puedes comprobar este hecho utilizando los datos de equipos de fútbol españoles de la FIFA (obtenidos de <a href='https://apifootball.com/'>aquí</a>)"
+        "subjectDescription": "Llamado paradoja por su resultado inesperado, el problema del cumpleaños establece que con solo 23 personas, hay más de un 50% de probabilidad de que dos compartan el mismo cumpleaños.",
+        "siteInstructions": "En 'Verificar', puedes probar esto usando datos de equipos de fútbol españoles de FIFA (datos obtenidos de <a href='https://apifootball.com/'>aquí</a>)"
     },
     "theMain": {
-        "resultDescription": "Para {teamName} con <span class='green'>{numberOfPlayers}</span> jugadores en el equipo hay un <span class='green'>{probability}%</span> de probabilidad (redondeando para arriba) que al menos dos jugadores compartan su cumpleaños.",
+        "resultDescription": "Para el equipo {teamName} con <span class='green'>{numberOfPlayers}</span> jugadores, hay un <span class='green'>{probability}%</span> de probabilidad (redondeando al alza) de que al menos dos jugadores compartan su cumpleaños.",
         "resultTitle": "Ellos nacieron el mismo día:",
-        "noResults": "Pero, al parecer, en este equipo no hay dos jugadores que compartan cumpleaños. Así es como funciona la probabilidad."
+        "noResults": "Parece que en este equipo no hay dos jugadores que compartan cumpleaños. Así funciona la probabilidad."
     },
     "theWelcome": {
         "first": {
             "title": "La pregunta",
-            "content": "En un grupo de personas, ¿cuántas personas crees que son necesarias para que dos de ellas compartan su fecha de cumpleaños?"
+            "content": "En un grupo de personas, ¿cuántas crees que se necesitan para que dos compartan su fecha de cumpleaños?"
         },
         "second": {
             "title": "23",
-            "content": "Con un grupo de 23 personas, tienes un 50% de posibilidades de que dos de ellas compartan su fecha de cumpleaños."
+            "content": "Con un grupo de 23 personas, tienes un 50% de posibilidades de que dos compartan su cumpleaños."
         },
         "third": {
             "title": "40",
-            "content": "Con un grupo de 40 personas, obtienes una probabilidad del 89,1%. Así que la próxima vez que tengas una cena familiar, piensa que si hay 40 personas, piensa en sus cumpleaños y puede que encuentres dos en el mismo día."
+            "content": "En un grupo de 40 personas, hay un 89,1% de probabilidad. Así que en una reunión familiar con 40 personas, podrías encontrar dos con el mismo cumpleaños."
         },
         "fourth": {
             "title": "60",
-            "content": "Con 60 personas y un 99,4% de probabilidad, puedes apostar que dos de ellas compartirán su fecha de cumpleaños."
+            "content": "Con 60 personas, la probabilidad sube a un 99,4%. Es casi seguro que dos compartirán cumpleaños."
         },
         "fifth": {
-            "title": "Y las matemáticas para esto no son tan complicadas",
-            "content": "Puedes tratar de entender el hecho desde <a href='/understanding'>aquí</a>. (365/365) x (365/364) x (365/363) x (365/362)... = 0.4927 = 49.27% de probabilidad de que no compartan sus fechas de cumpleaños, lo que significa que un 50.73% sí lo hacen."
+            "title": "Las matemáticas no son tan complicadas",
+            "content": "Puedes entenderlo más a fondo desde <a href='/understanding'>aquí</a>. (365/365) x (364/365) x (363/365) x (362/365)... = 0.4927 = 49.27% de probabilidad de no compartir fecha, lo que significa que un 50.73% sí la comparten."
         }
     }
-}        
+}
