@@ -14,7 +14,8 @@
     },
     "theMain": {
         "resultDescription": "For {teamName} with <span class='green'>{numberOfPlayers}</span> players on its team has a <span class='green'>{probability}%</span> of probability (rounding up) that at least two players share their birthday.",
-        "resultTitle": "They were born the same day:"
+        "resultTitle": "They were born the same day:",
+        "noResults": "But apparently, for this team, there are no two players who share a birthday. Thats how probability works." 
     },
     "theWelcome": {
         "first": {

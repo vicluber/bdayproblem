@@ -1,3 +1,35 @@
+<template>
+    <ul v-if="!selected">
+        <li v-for="(item, index) in teamsArray" :key="index" @click="selectLeague(item.players, item.team_name)">
+            <img :src="item.team_badge" width="80" height="80" />
+        </li>
+    </ul>
+    <div class="p-5" v-if="selected">
+        <p v-html="results"></p>
+        
+        <!-- Check if sharedBirthdays is empty -->
+        <div v-if="sharedBirthdays.length === 0" class="p-5">
+            <h5 class="text-muted">{{ $t("theMain.noResults") }}</h5>
+        </div>
+        
+        <!-- Render sharedBirthdays if not empty -->
+        <div v-else>
+            <div class="p-5" v-for="(item, index) in sharedBirthdays" :key="index">
+                <h5 class="green">{{ $t("theMain.resultTitle") }}</h5>
+                <div class="d-flex flex-wrap">
+                    <div class="d-flex flex-column" v-for="(p, i) in item" :key="i">
+                        <div class="text-center"><b>{{ p.name }}</b></div>
+                        <div class="p-2">
+                            <img :src="p.image" width="150" height="150" onerror="this.src='fallback-image.png'" />
+                        </div>
+                        <div class="text-center">{{ p.birthdate }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
 <script>
 export default {
     data() {
@@ -40,6 +72,7 @@ export default {
                     countMap[player.modifiedBirthdate].push({name: player.player_name, image: player.player_image, birthdate: player.player_birthdate});
                 }
             }
+            this.sharedBirthdays = [];
             for (let key in countMap) {
                 if(countMap[key].length >= 2){
                     this.sharedBirthdays.push(countMap[key])
@@ -52,26 +85,6 @@ export default {
 }
 </script>
 
-<template>
-    <ul v-if="!selected">
-        <li v-for="(item, index) in teamsArray" :key="index" @click="selectLeague(item.players, item.team_name)">
-            <img :src="item.team_badge" width="80" height="80" />
-        </li>
-    </ul>
-    <div class="p-5" v-if="selected">
-        <p v-html="results"></p>
-        <div class="p-5" v-for="(item, index) in sharedBirthdays" :key="index">
-            <h5 class="green">{{ $t("theMain.resultTitle") }}</h5>
-            <div class="d-flex flex-wrap">
-                <div class="d-flex flex-column" v-for="(p, i) in item" :key="i">
-                    <div class="text-center"><b>{{ p.name }}</b></div>
-                    <div class="p-2"><img :src="p.image" width="150" height="150" onerror="this.src='fallback-image.png'" /></div>
-                    <div class="text-center">{{ p.birthdate }}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
 <style scoped>
     ul {
         list-style: none;
@@ -81,5 +94,8 @@ export default {
     li {
         padding: 20px;
         cursor: pointer;
+    }
+    .text-muted {
+        color: #6c757d;
     }
 </style>

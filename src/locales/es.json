@@ -14,7 +14,8 @@
     },
     "theMain": {
         "resultDescription": "Para {teamName} con <span class='green'>{numberOfPlayers}</span> jugadores en el equipo hay un <span class='green'>{probability}%</span> de probabilidad (redondeando para arriba) que al menos dos jugadores compartan su cumpleaños.",
-        "resultTitle": "Ellos nacieron el mismo día:"
+        "resultTitle": "Ellos nacieron el mismo día:",
+        "noResults": "Pero, al parecer, en este equipo no hay dos jugadores que compartan cumpleaños. Así es como funciona la probabilidad."
     },
     "theWelcome": {
         "first": {
