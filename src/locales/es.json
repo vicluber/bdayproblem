@@ -1,8 +1,8 @@
 {
     "menu": {
-        "home": "El hecho",
-        "checkitout": "Verificar",
-        "understanding": "Entender"
+        "home": "¿Qué es?",
+        "checkitout": "Pruebalo ⚽",
+        "understanding": "¿Cómo funciona?"
     },
     "understanding": {
         "eli5": "<p>Para entenderlo mejor, veamos el problema al revés y calculemos la probabilidad de que dos personas no compartan su fecha de nacimiento. Imagina que vivimos en un mundo con años de solo 10 días y sin meses. Tenemos dos personas en un año de 10 días, y queremos saber la probabilidad de que no compartan fecha de nacimiento.</p><p>Si una de ellas nace en un día específico, ¿cuántos días disponibles quedan para la otra persona? Nueve, ¿verdad? Entonces, la probabilidad de no compartir fecha de nacimiento es 9/10, o 0.9, equivalente a un 90%.</p><p>Ahora, añadimos una tercera persona. Si las dos primeras ya eligieron dos días, la tercera puede nacer en uno de los 8 días restantes. La probabilidad de no compartir fecha con las otras dos es 8/10, o 0.8, es decir, un 80%. De ahí, podemos deducir que hay un 20% de probabilidad de que comparta fecha con alguna de las dos. Aplicando las <a href='https://www.youtube.com/watch?v=uvU4A2u_pAc'>reglas de multiplicación de probabilidad</a>, calculamos la probabilidad de que las tres personas no compartan fecha en un año de 10 días: (10/10) x (9/10) x (8/10) = 0.72 = 72%.</p><p>Ahora, usemos un año de 365 días y 23 personas. La probabilidad de que no compartan fechas de nacimiento es (365/365) x (364/365) x (363/365) x (362/365) ... = 0.4927 = 49.27%, lo que significa que el 50.73% de ellos comparten una fecha de nacimiento.</p><p><a href='https://www.youtube.com/watch?v=KtT_cgMzHx8'>Este video</a> me ayudó mucho a entenderlo.</p>"

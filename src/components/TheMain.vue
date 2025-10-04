@@ -1,9 +1,16 @@
 <template>
-    <ul v-if="!selected">
-        <li v-for="(item, index) in teamsArray" :key="index" @click="selectLeague(item.players, item.team_name)">
-            <img :src="item.team_badge" width="80" height="80" />
-        </li>
-    </ul>
+    <div v-if="!selected">
+        <div class="instructions">
+            <h3>Selecciona un equipo para verificar el paradoja</h3>
+            <p>Haz clic en cualquier escudo para ver si algún jugador comparte cumpleaños</p>
+        </div>
+        <ul>
+            <li v-for="(item, index) in teamsArray" :key="index" @click="selectLeague(item.players, item.team_name)">
+                <img :src="item.team_badge" width="80" height="80" />
+                <div class="team-name">{{ item.team_name }}</div>
+            </li>
+        </ul>
+    </div>
     <div class="p-5" v-if="selected">
         <p v-html="results"></p>
         
@@ -88,14 +95,62 @@ export default {
 <style scoped>
     ul {
         list-style: none;
-        display: inline-flex;
+        display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
     li {
-        padding: 20px;
+        flex: 0 0 140px;
+        padding: 15px;
         cursor: pointer;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    li:hover {
+        transform: translateY(-5px);
+        border-color: #007bff;
+        box-shadow: 0 8px 25px rgba(0,123,255,0.2);
+    }
+    li img {
+        transition: transform 0.3s ease;
+    }
+    li:hover img {
+        transform: scale(1.1);
     }
     .text-muted {
         color: #6c757d;
+    }
+    .instructions {
+        text-align: center;
+        margin: 20px;
+        padding: 10px;
+    }
+    .instructions h3 {
+        color: #6c757d;
+        margin-bottom: 5px;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .instructions p {
+        color: #adb5bd;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+    .team-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #495057;
+        margin-top: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 </style>
