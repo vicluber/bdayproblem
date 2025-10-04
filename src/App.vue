@@ -14,7 +14,11 @@ import Index from './components/Index.vue'
       </nav>
     </div>
   </header>
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <transition name="page" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </RouterView>
 </template>
 
 <style scoped>
@@ -48,15 +52,35 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+nav a:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 nav a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
   background: linear-gradient(45deg, #0056b3, #007bff);
 }
 
@@ -97,5 +121,20 @@ nav a.router-link-exact-active:hover {
     margin-top: 1rem;
     justify-content: flex-start;
   }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-30px) scale(1.05);
 }
 </style>

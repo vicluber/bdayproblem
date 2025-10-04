@@ -10,7 +10,7 @@
     "index": {
         "title": "La 'paradoja' del cumpleaños",
         "subjectDescription": "Llamado paradoja por su resultado inesperado, el problema del cumpleaños establece que con solo 23 personas, hay más de un 50% de probabilidad de que dos compartan el mismo cumpleaños.",
-        "siteInstructions": "En 'Verificar', puedes probar esto usando datos de equipos de fútbol españoles de FIFA (datos obtenidos de <a href='https://apifootball.com/'>aquí</a>)"
+        "siteInstructions": "Puedes probarlo usando datos de equipos de fútbol españoles de FIFA (datos obtenidos de <a href='https://apifootball.com/'>aquí</a>)"
     },
     "theMain": {
         "resultDescription": "Para el equipo {teamName} con <span class='green'>{numberOfPlayers}</span> jugadores, hay un <span class='green'>{probability}%</span> de probabilidad (redondeando al alza) de que al menos dos jugadores compartan su cumpleaños.",

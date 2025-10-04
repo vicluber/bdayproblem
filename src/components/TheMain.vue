@@ -1,17 +1,24 @@
 <template>
     <div v-if="!selected">
-        <div class="instructions">
-            <h3>Selecciona un equipo para verificar el paradoja</h3>
-            <p>Haz clic en cualquier escudo para ver si algún jugador comparte cumpleaños</p>
+        <div v-if="teamsArray.length === 0" class="loading-container">
+            <div class="spinner"></div>
+            <p class="loading-text">Cargando equipos...</p>
         </div>
-        <ul>
-            <li v-for="(item, index) in teamsArray" :key="index" @click="selectLeague(item.players, item.team_name)">
-                <img :src="item.team_badge" width="80" height="80" />
-                <div class="team-name">{{ item.team_name }}</div>
-            </li>
-        </ul>
+        <div v-else>
+            <div class="instructions fade-in">
+                <h3>Selecciona un equipo para verificar el paradoja</h3>
+                <p>Haz clic en cualquier escudo para ver si algún jugador comparte cumpleaños</p>
+            </div>
+            <ul>
+                <li v-for="(item, index) in teamsArray" :key="index" @click="selectLeague(item.players, item.team_name)" 
+                    class="team-card" :style="{ animationDelay: `${index * 0.1}s` }">
+                    <img :src="item.team_badge" width="80" height="80" />
+                    <div class="team-name">{{ item.team_name }}</div>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="p-5" v-if="selected">
+    <div class="p-5 results-container" v-if="selected">
         <p v-html="results"></p>
         
         <!-- Check if sharedBirthdays is empty -->
@@ -109,25 +116,68 @@ export default {
         cursor: pointer;
         border: 2px solid #e0e0e0;
         border-radius: 12px;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         background: white;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         text-align: center;
+        position: relative;
+        overflow: hidden;
     }
+    
+    .team-card {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+        animation: slideInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    
+    @keyframes slideInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
     li:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px) scale(1.05);
         border-color: #007bff;
-        box-shadow: 0 8px 25px rgba(0,123,255,0.2);
+        box-shadow: 0 12px 35px rgba(0,123,255,0.25);
     }
+    
+    li::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: left 0.5s;
+    }
+    
+    li:hover::before {
+        left: 100%;
+    }
+    
     li img {
-        transition: transform 0.3s ease;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     li:hover img {
-        transform: scale(1.1);
+        transform: scale(1.15) rotate(5deg);
     }
     .text-muted {
         color: #6c757d;
     }
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out 0.2s forwards;
+    }
+    
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+    
     .instructions {
         text-align: center;
         margin: 20px;
@@ -138,12 +188,26 @@ export default {
         margin-bottom: 5px;
         font-size: 1rem;
         font-weight: 500;
+        transform: translateY(10px);
+        animation: slideInFade 0.6s ease-out 0.4s forwards;
+        opacity: 0;
     }
     .instructions p {
         color: #adb5bd;
         margin: 0;
         font-size: 0.9rem;
+        transform: translateY(10px);
+        animation: slideInFade 0.6s ease-out 0.6s forwards;
+        opacity: 0;
     }
+    
+    @keyframes slideInFade {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
     .team-name {
         font-size: 0.9rem;
         font-weight: 600;
@@ -152,5 +216,61 @@ export default {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        transition: all 0.3s ease;
+        transform: translateY(5px);
+        opacity: 0.8;
+    }
+    
+    li:hover .team-name {
+        transform: translateY(0);
+        opacity: 1;
+        color: #007bff;
+    }
+    
+    .loading-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+    }
+    
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #007bff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .loading-text {
+        margin-top: 20px;
+        color: #6c757d;
+        font-size: 1.1rem;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; }
+    }
+    
+    .results-container {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideInResults 0.6s ease-out 0.1s forwards;
+    }
+    
+    @keyframes slideInResults {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 </style>
